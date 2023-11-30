@@ -2,14 +2,15 @@ package com.example.lovecalculator_mvvm
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.example.lovecalculator_mvvm.remote.LoveApi
 import com.example.lovecalculator_mvvm.remote.LoveModel
 import com.example.lovecalculator_mvvm.remote.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class Repository {
-    val api = RetrofitService.api
+class Repository  @Inject constructor(private val api: LoveApi) {
     fun getData(firstName: String, secondName: String): MutableLiveData<LoveModel> {
         val love = MutableLiveData<LoveModel>()
 
