@@ -20,4 +20,9 @@
         android:name="com.example.lovecalculator_mvvm.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.lovecalculator_mvvm.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
 </navigation>

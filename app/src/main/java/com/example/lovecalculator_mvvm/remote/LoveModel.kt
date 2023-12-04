@@ -1,9 +1,20 @@
 package com.example.lovecalculator_mvvm.remote
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity("love-table")
 data class LoveModel(
 
     val fname: String,
     val sname: String,
     val percentage: String,
-    val title: String
-)
+    val title: String,
+
+    @PrimaryKey(autoGenerate = true)
+    var id: Int? = null
+) {
+    override fun toString(): String {
+        return "\n$percentage \n$fname \n$sname \n$title\n"
+    }
+}
