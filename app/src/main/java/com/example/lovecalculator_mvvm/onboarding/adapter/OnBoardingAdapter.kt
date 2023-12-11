@@ -4,8 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import com.example.lovecalculator_mvvm.R
 import com.example.lovecalculator_mvvm.databinding.ItemOnBoardingBinding
-import com.example.lovecalculator_mvvm.OnBoardingModel
+import com.example.lovecalculator_mvvm.onboarding.OnBoardingModel
 
 
 class OnBoardingAdapter(private val onClick: () -> Unit) :
@@ -14,22 +15,22 @@ class OnBoardingAdapter(private val onClick: () -> Unit) :
         OnBoardingModel(
             "Have a good time",
             "You should take the time to help those who need you",
-            "https://thewrightinitiative.com/800/600/http/i.kym-cdn.com/photos/images/original/002/111/363/7d3.jpg"
+            R.raw.anim_1
         ),
         OnBoardingModel(
             "Cherishing love",
             "It is no longer possible for you to cherish love",
-            "https://i.pinimg.com/736x/bd/90/92/bd9092d31e092f9e9faee42fa9453044.jpg"
+            R.raw.anim_2
         ),
         OnBoardingModel(
             "Have a breakup?",
             "We have the correction for you don't worry \n mayby someone is waiting for you!",
-            "https://news.masscommunicationtalk.com/wp-content/uploads/2020/11/breakup.jpg"
+            R.raw.anim_3
         ),
         OnBoardingModel(
             "It's funs and many more!",
             "",
-            "https://image.winudf.com/v2/image/Y29tLm5pa2hpbDJhZ3Jhd2FsLmxvdmVfY2FsY3VsYXRvcl9zY3JlZW5fNV8xNTI2NDgzNTEwXzAwNA/screen-5.jpg?fakeurl=1&type=.jpg"
+            R.raw.anim_4
         )
     )
 
@@ -57,6 +58,12 @@ class OnBoardingAdapter(private val onClick: () -> Unit) :
             tvDesc.text = onBoarding.desc
             btnGetStarted.isVisible = adapterPosition == list.lastIndex
 
+            onBoarding.anim?.let {
+                with(binding) {
+                    animBoard.setAnimation(onBoarding.anim)
+                    animBoard.playAnimation()
+                }
+            }
             btnGetStarted.setOnClickListener {
                 onClick()
             }

@@ -6,5 +6,7 @@
     <string name="get_love">Get love</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="get_history">Get history</string>
+    <string name="title">Title</string>
+    <string name="get_started">Get started</string>
 
 </resources>
